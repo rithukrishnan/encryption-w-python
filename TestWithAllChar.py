@@ -6,13 +6,21 @@
 test_str = 'AeeksForGeeks'
 
 # printing original String
-#print("The original string is : " + str(test_str))
+print("The original string is : " + str(test_str))
 
 # initializing K
 K = 2
 
-alpha_chars = 'abcdefghijklmnopqrstuvwxyz'
+asc = ''.join(chr(i) for i in range(34, 127))
+print(asc)
 
+
+asc_trans = str.maketrans(asc, asc[-K:] + asc[ : -K])
+res = test_str.translate(asc_trans)
+
+print("The converted String with all values : " + str(res))
+
+alpha_chars = 'abcdefghijklmnopqrstuvwxyz'
 
 # converted to uppercase
 alpha_chars2 = alpha_chars.upper()
@@ -38,10 +46,8 @@ res = test_str.translate(lower_trans)
 #print(asc)
 
 # printing result
-#print("The converted String : " + str(res))
+print("The converted String : " + str(res))
 
 #for c in (chr(i) for i in range(34, 127)):
 #    print(c)
     
-asc = ''.join(chr(i) for i in range(34, 127))
-print(asc)
