@@ -25,8 +25,19 @@ def customEncrypt(inputText, N, D):
 
 def testCustomEncrypt():
     print("Testing Custom Encryption Algorithm")
-    user_id = input("Enter UserID as text : ")
-    pwd = input("Enter password as text : ")
+    #Take input for user_id and pwd while performing checks
+    while True:
+        try:
+            user_id = input("Enter UserID as text : ")
+            if " " in user_id or "!" in user_id:
+                raise Exception("userID can not contain \'!\' or \' \'. Try again")
+            pwd = input("Enter password as text : ")
+            if " " in pwd or "!" in pwd:
+                raise Exception("Password can not contain \'!\' or \' \'. Try again")
+            break
+        except:
+            print("userID or Pwd can not contain \'!\' or \' \'. Try again")
+    
 
     while True:
         try:
@@ -36,6 +47,8 @@ def testCustomEncrypt():
             break     
         except ValueError:
             print("Oops!  That was no valid value.  Try again...")
+        except:
+            print("Invalid value for D, Values allowed for D are -1 or 1 only")
 
     #Call Custom Encryption with original userID and pwd value to get encrypted values
     e_user_id = customEncrypt(user_id, N, D)
@@ -62,3 +75,20 @@ def testCustomEncrypt():
 testCustomEncrypt()
 
 
+#Task
+# Question 1 : Which of the userid and password combination(s) in the table above are present in the database?
+"""
+asamant    Temp123   -----> wqdpdvd 654sphW
+skharel    Life15$   -----> ohudknv '84hilO
+"""
+
+# Question 2 : Which userid(s) is/are present in the database, but the password does not match the password(s) in the table above?    
+"""
+aissa        TheKing%^&     ----> dvvld )a(wkjlO
+bjha          $72messenge   ----> dkme roohK5:'
+"""
+
+# Question 3 : Which userid(s) do/does not meet the requirements of a userid?
+"""
+Ally!        God$12 
+"""
